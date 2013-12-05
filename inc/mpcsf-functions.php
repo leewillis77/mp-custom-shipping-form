@@ -2,7 +2,7 @@
 
   // Show Custom Fields in shipping form
 
-	function mpcsf_show_custom_fields() {
+	function mpcsf_show_custom_fields( $output ) {
 	    global $mp, $current_user;
 
 	    $meta = get_user_meta($current_user->ID, 'mpcsf_custom_field', true);
@@ -10,8 +10,6 @@
 	    $cfsettings = wpsf_get_settings( MPCSF_PATH .'inc/mpcsf-custom.php' );
 
 	    if (!empty($cfsettings)) {
-
-	    $output = '';
 
       $sectiontitle = esc_attr($cfsettings['mpcsfcustom_first_settings_section_title']);
       $enablesectiontitle = esc_attr($cfsettings['mpcsfcustom_first_settings_show_section_title']);
@@ -106,7 +104,7 @@
 
   // Show Custom Fields (read only) in Order confirmation page
 
-	function mpcsf_show_custom_fields_readonly() {
+	function mpcsf_show_custom_fields_readonly( $output ) {
 	    global $current_user;
 
 	    $meta = get_user_meta($current_user->ID, 'mpcsf_custom_field', true);
